@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">
+            <img
+              src="/logo.png"
+              alt="Logo"
+              class="img-fluid"
+              style="height: 40px"
+            />
+          </a>
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/message">Send Message</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/read">View Messages</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container my-4">
+      <h1 class="mb-4">Messages</h1>
+      <ul class="list-group">
+        {% for time, user in users.items() %}
+        <li class="list-group-item">
+          <p><strong>{{ time }}</strong></p>
+          <p>User: <span class="text-primary">{{ user.username }}</span></p>
+          <p>Message: <span class="text-muted">{{ user.message }}</span></p>
+        </li>
+        {% endfor %}
+      </ul>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2Iy4ubbqhFxK6bKk6YFQn3DTlBM1ENn1ArRnZfj03txOeG2Jk3Kz4HkR9cC"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
